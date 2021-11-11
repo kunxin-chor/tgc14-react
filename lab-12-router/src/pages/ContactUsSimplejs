@@ -14,34 +14,15 @@ export default function ContactUs() {
     // 2. useState returns an array of two elements
     // --> element 1: is the current value of the state variable
     // --> element 2: a function that is used to change the state variale
-    const [formState, setFormState] = useState({
-        'fullname': '',
-        'email': ''
-    })
-
-    const updateFormField = (e) => {
-
-        // to update an existing object in react:
-
-        // 1. clone the object
-        let clone = {...formState};
-
-        // 2. make the change
-        clone[e.target.name] = e.target.value;
-
-        // 3. set back the state
-        setFormState(clone);
-
-        // setFormState({
-        //     ...formState,
-        //     [e.target.name] : e.target.value
-        // })
-    }
+    const [fullname, setFullname] = useState("");
+    const [email, setEmail] = useState("");
 
     function submitForm() {
-        history.push('/form-submitted',{
-            'formData': formState
-        });
+        history.push('/form-submitted');
+    }
+
+    function updateFullname(evt) {
+        setFullname(evt.target.value)
     }
 
     return <React.Fragment>
@@ -49,14 +30,16 @@ export default function ContactUs() {
         <div>
             <div>
                 <label>Full Name:</label>
-                <input type="text" name="fullname" value={formState.fullname}
-                 onChange={updateFormField}
+                <input type="text" name="fullname" value={fullname}
+                 onChange={updateFullname}
                 />
             </div>
             <div>
                 <label>Email</label>
-                <input type="text" name="email" value={formState.email}
-                 onChange={updateFormField}
+                <input type="text" name="email" value={email}
+                 onChange={(evt)=>{
+                    setEmail(evt.target.value)
+                 }}
                 />
             </div>
             <input type="button" onClick={submitForm} value="Contact Us" />

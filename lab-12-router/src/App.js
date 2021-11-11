@@ -11,6 +11,7 @@ import {
 import About from './pages/About';
 import ContactUs from './pages/ContactUs';
 import Home from './pages/Home';
+import SubmittedForm from './pages/SubmittedForm';
 
 function App() {
   return (
@@ -45,7 +46,7 @@ function App() {
         </Route>
 
         <Route exact path="/form-submitted">
-          <h1>Thank you for your submission</h1>
+          <SubmittedForm/>
         </Route>
 
 
