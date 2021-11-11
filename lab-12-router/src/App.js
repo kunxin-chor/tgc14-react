@@ -12,6 +12,7 @@ import About from './pages/About';
 import ContactUs from './pages/ContactUs';
 import Home from './pages/Home';
 import SubmittedForm from './pages/SubmittedForm';
+import PostPage from './pages/PostPage';
 
 function App() {
   return (
@@ -27,6 +28,10 @@ function App() {
           <li>
             <Link to="/contact">Contact Us</Link>
           </li>
+          <li>
+            <Link to="/posts">Posts</Link>
+          </li>
+
         </ul>
       </nav>
       <Switch>
@@ -47,6 +52,10 @@ function App() {
 
         <Route exact path="/form-submitted">
           <SubmittedForm/>
+        </Route>
+
+        <Route exact path="/posts/:post_id">
+          <PostPage/>
         </Route>
 
 
