@@ -34,6 +34,9 @@ export default function ProductProvider(props) {
 
             let clone = [...products, newProduct];
             setProducts(clone);
+        },
+        getProductByID: (wantedProductID) => {
+           return products.filter( p => p.id === parseInt(wantedProductID))[0] 
         }
     }
 

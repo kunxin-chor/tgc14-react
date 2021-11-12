@@ -5,6 +5,7 @@ import React, {useContext} from 'react';
 import Foobar from './Foobar';
 
 import ProductContext from './ProductContext';
+import { Link } from 'react-router-dom';
 
 export default function ProductListing() {
     let context = useContext(ProductContext);
@@ -13,7 +14,10 @@ export default function ProductListing() {
             <ul>
             {
                 context.getProducts().map( (p)=>{
-                    return <li key={p.id}>{p.product_name}</li>
+                    return <li key={p.id}>
+                        {p.product_name}
+                        | <Link to={"/product/" + p.id}>More...</Link>
+                    </li>
                 })
             }
             </ul>

@@ -6,6 +6,7 @@ import {
   Switch
 } from 'react-router-dom'
 import AddProductPage from './pages/AddProductPage';
+import ProductDetailsPage from './pages/ProductDetailsPage';
 import ProductListingPage from './pages/ProductListingPage';
 import ProductProvider from "./ProductProvider";
 
@@ -26,6 +27,9 @@ function App() {
               <Route exact path="/addProduct">
                 <AddProductPage/>
               </Route>          
+              <Route exact path="/product/:productId">
+                <ProductDetailsPage/>
+              </Route>
           </Switch>
         </ProductProvider>
 
