@@ -3,17 +3,15 @@ import { useParams } from 'react-router-dom'
 import ProductContext from './ProductContext';
 
 export default function ProductDetails() {
+    let pageParams = useParams();
+    console.log(pageParams)
     const { productId } = useParams();
-    const [ product, setProduct ] = useState({
-        'product_name': '',
-        'cost': ''
-    });
+    const [ product, setProduct ] = useState({});
     const context = useContext(ProductContext);
 
     useEffect(() => {
         const fetchProduct = () => {
-            let wantedProduct = context.getProductByID(productId);
-            console.log(wantedProduct);
+            let wantedProduct = context.getProductByID(productId);  
             setProduct(wantedProduct);
         }
 
