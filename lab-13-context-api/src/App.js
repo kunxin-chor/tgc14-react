@@ -23,7 +23,7 @@ class App extends React.Component {
         'product_name': 'ACME Screwdrivers',
         'cost': 29.99
       }
-    ]
+    ],
   }
   render() {
     // context is an object created in render
