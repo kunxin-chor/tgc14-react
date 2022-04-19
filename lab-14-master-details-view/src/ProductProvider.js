@@ -27,7 +27,7 @@ export default function ProductProvider(props) {
         },
         addProduct: (newProductName,cost) => {
             let newProduct = {
-                '_id': Math.floor(Math.random() * 10000 + 9999),
+                'id': Math.floor(Math.random() * 10000 + 9999),
                 'product_name': newProductName,
                 'cost': cost
             };

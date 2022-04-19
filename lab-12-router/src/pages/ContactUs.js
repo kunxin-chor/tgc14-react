@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function ContactUs() {
 
-    // use the history hook from react-router-dom
+    // use the navigate hook from react-router-dom
     // inside the ContactUs component
-    const history = useHistory();
+    const navigate = useNavigate();
 
     // 1. useState takes in one argument, which is the default value of the
     // state variable
@@ -39,8 +39,10 @@ export default function ContactUs() {
     }
 
     function submitForm() {
-        history.push('/form-submitted',{
-            'formData': formState
+        navigate('/form-submitted',{
+            'state': {
+                'formData':formState
+            }
         });
     }
 

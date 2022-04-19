@@ -3,7 +3,7 @@ import './App.css';
 
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
   Link
 } from "react-router-dom"
@@ -34,32 +34,22 @@ function App() {
 
         </ul>
       </nav>
-      <Switch>
+      <Routes>
         {/* Home route */}
-        <Route exact path="/">
-          <Home />
-        </Route>
+        <Route path="/" element={<Home/>} />
 
         {/* About Us route */}
-        <Route exact path="/about">
-          <About />
-        </Route>
+        <Route path="/about" element={<About/>} />
+
 
         {/* Contact Us route */}
-        <Route exact path="/contact">
-          <ContactUs />
-        </Route>
-
-        <Route exact path="/form-submitted">
-          <SubmittedForm/>
-        </Route>
-
-        <Route exact path="/posts/:post_id">
-          <PostPage/>
-        </Route>
+        <Route path="/contact" element={<ContactUs/>} />
 
 
-      </Switch>
+        <Route path="/form-submitted" element={<SubmittedForm/>} />
+
+        <Route path="/posts/:post_id" element={<PostPage/>} />
+      </Routes>
     </Router>
   );
 }

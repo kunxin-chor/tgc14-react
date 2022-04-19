@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Route,
   Link,
-  Switch
+  Routes
 } from 'react-router-dom'
 import AddProductPage from './pages/AddProductPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
@@ -20,17 +20,11 @@ function App() {
           <Link to="/addProduct">Add</Link>
         </nav>
         <ProductProvider>
-          <Switch>      
-              <Route exact path="/">
-                <ProductListingPage />
-              </Route>
-              <Route exact path="/addProduct">
-                <AddProductPage/>
-              </Route>          
-              <Route exact path="/product/:productId">
-                <ProductDetailsPage/>
-              </Route>
-          </Switch>
+          <Routes>      
+              <Route path="/" element={<ProductListingPage />}/>
+              <Route path="/addProduct" element={ <AddProductPage/>}/>
+              <Route path="/product/:productId" element={     <ProductDetailsPage/>}/>
+          </Routes>
         </ProductProvider>
 
       </Router>
